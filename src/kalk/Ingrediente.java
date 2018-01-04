@@ -79,7 +79,7 @@ public class Ingrediente {
         return tmp;
     	
     }
-    public Ingrediente porzionePer(int p){
+    public Ingrediente moltiplica(int p){
     	Ingrediente tmp = new Ingrediente(nome,quantita,costo,calorie);
         tmp.setQuantita(tmp.getQuantita()*p);
         return tmp;

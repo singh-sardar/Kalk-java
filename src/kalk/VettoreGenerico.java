@@ -55,12 +55,29 @@ public abstract class VettoreGenerico<T> {
 		String s="";
 		for(int i = 0 ; i < vettore.size();i++){
 			s+= vettore.get(i).toString()+"\n";
+			
 		}
 		return s;
 	}
+	
 	public abstract VettoreGenerico<T> somma(VettoreGenerico<T> v);
 	public abstract VettoreGenerico<T> differenza(VettoreGenerico<T> v);
-	public abstract boolean uguali(VettoreGenerico<T> v);
-	public abstract boolean diversi(VettoreGenerico<T> v);
+	public boolean uguali(VettoreGenerico<T> v){
+		if(vettore.size() != v.getSize()){
+	        return false;
+	    }
+	    boolean uguali = true;
+	    for( int i=0; i < vettore.size()&& uguali; ++i){
+	        if( !(vettore.get(i).toString().equals(v.getAt(i).toString())))
+	        	uguali = false;
+	    }
+	    return uguali;
+	}
+	public boolean diversi(VettoreGenerico<T> v){
+		return !(uguali(v));
+	}
+	public ArrayList<T> getVettore(){
+		return vettore;
+	}
 
 }

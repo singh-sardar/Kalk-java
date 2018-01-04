@@ -1,5 +1,6 @@
 package kalk;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.plaf.ColorUIResource;
@@ -96,20 +97,25 @@ public class Use {
 
 	
 	static void ricettaUse(){
-		/*
-		 * VettoreGenerico<Ingrediente> ricetta= new VettoreGenerico<Ingrediente>();
-		 
-		Ingrediente i = new Ingrediente("a",1,1,2);
-		Ingrediente j = new Ingrediente("a",1,1,2);
-		ricetta.aggiungiElemento(i);
-		ricetta.aggiungiElemento(j);
-		//System.out.println(ricetta.getAt(0).getDescrizione());
-		j.setNome("aa");
 
-		ricetta.rimuoviElemento(j);
-		for(int m = 0 ; m < ricetta.getSize();m++){
-			System.out.println(ricetta.getAt(m));
-		}
-		*/
+		Ricetta r = new Ricetta();
+		r.setNomeRicetta("Ricetta 1");
+		Ingrediente tmp1 = new Ingrediente("Ingrediente 1",1,1,2);
+		Ingrediente tmp2 = new Ingrediente("Ingrediente 2",1,1,2);
+		r.aggiungiElemento(tmp1);
+		r.aggiungiElemento(tmp2);
+		ArrayList<Ingrediente> tmp = Ricetta.copiaProfonda(r.getVettore());
+		Ricetta r1 = new Ricetta(tmp,"Ricetta 2");
+		r1.getAt(0).setNome("Ingrediente 3");
+		System.out.println(r.getRicetta());
+		System.out.println(r1.getRicetta());
+		System.out.println("SOMMA TRA RICETTA 1 e RICETTA 2");
+		System.out.println(((Ricetta)r.somma(r1)).getRicetta());
+		System.out.println("DIFFERENZA TRA RICETTA 1 e RICETTA 2");
+		System.out.println(((Ricetta)r.differenza(r1)).getRicetta());
+		System.out.println("Costo totale della ricetta "+r.getNomeRicetta()+" e' di "+Double.toString(r.costoRicetta())+" euro");
+		System.out.println("Calorie totali della ricetta "+r.getNomeRicetta()+" sono "+Double.toString(r.calorieRicetta())+" cal");
+		System.out.println(r.porzionePer(5).getRicetta());
+
 	}
 }
