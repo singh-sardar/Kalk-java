@@ -3,7 +3,6 @@ package kalk;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.swing.plaf.ColorUIResource;
 
 public class Use {
 
@@ -18,7 +17,7 @@ public class Use {
 		System.out.println(" 2) -Ricetta");
 		System.out.println(" 3) -Libretto Scolastico");
 		System.out.println(" 4) -Matrici");
-		System.out.println(" -1) -Chiudi");
+		System.out.println("-1) -Chiudi");
 		int scelta =0;
 		try{
 			scelta = in.nextInt();
@@ -49,6 +48,7 @@ public class Use {
 			break;
 
 		}
+		in.close();
 
 
 	}
