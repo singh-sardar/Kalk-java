@@ -313,9 +313,33 @@ public class ColoreRgb extends Colore{
 	
     public String rgb2hex(){
     	String s = "#";
-    	s+=Integer.toString(r, 16);
-    	s+=Integer.toString(g, 16);
-    	s+=Integer.toString(b, 16);
+    	String tmp="";
+    	tmp=Integer.toString(r, 16);
+    	if(tmp.length()==1)
+    		s+="0"+tmp;
+    	else
+    		s+=tmp;
+    	
+    	tmp="";
+    	tmp=Integer.toString(g, 16);
+    	
+    	if(tmp.length()==1)
+    		s+="0"+tmp;
+    	else
+    		s+=tmp;
+    	
+    	
+    	tmp="";
+    	tmp=Integer.toString(b, 16);
+    	
+    	
+    	
+    	if(tmp.length()==1)
+    		s+="0"+tmp;
+    	else
+    		s+=tmp;
+    	
+    	
     	return s;
     }
 

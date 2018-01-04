@@ -73,35 +73,6 @@ public abstract class Colore {
 
 	    }
 
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		
 		return RGB;
 	}
 }
