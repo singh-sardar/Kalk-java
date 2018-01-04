@@ -1,4 +1,4 @@
-package kalk.colore;
+package kalk;
 
 public class Colore {
 	

@@ -1,7 +1,5 @@
 package kalk;
 
-import kalk.colore.Colore;
-
 public class Use {
 
 	public static void main(String[] args) {
