@@ -5,11 +5,11 @@ public class ColoreRgb extends Colore{
     private float a; 
 
     
-    ColoreRgb(){
+    public ColoreRgb(){
     	r=g=b=0;
     	a =1;
     }
-    ColoreRgb(int R, int G, int B, float A){
+    public ColoreRgb(int R, int G, int B, float A){
 
     	if(R<0 || R> 255)
             r=0;
@@ -119,7 +119,7 @@ public class ColoreRgb extends Colore{
 
 	@Override
 	public Colore differenza(Colore c) {
-		  //sintesi sottrativa di un colore. cioè data una luce di un certo colore. e data la quantita di luce che assorbe la superfice di riflessione ottengo la luce che verra percepita dal occhio
+		  //sintesi sottrativa di un colore. cioe data una luce di un certo colore. e data la quantita di luce che assorbe la superfice di riflessione ottengo la luce che verra percepita dal occhio
 	    ColoreRgb aux= new ColoreRgb();
 
 	    if (c instanceof ColoreRgb) {

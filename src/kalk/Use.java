@@ -31,7 +31,7 @@ public class Use {
 			coloriRgbUse();
 			break;
 		case 2:
-
+			ricettaUse();
 			break;
 		case 3:
 
@@ -66,7 +66,7 @@ public class Use {
 		System.out.println("Colore result Modulazione : "+c3.schemaColore());;
 		System.out.println("Delta E Colori : "+Double.toString(c1.deltaE(c2)));;
 		System.out.println("Colore complementare Colore 1 : "+c1.complementare().schemaColore());
-		System.out.println("Luminosità Colore 1 : "+c1.luminositaColore().schemaColore());
+		System.out.println("Luminosita Colore 1 : "+c1.luminositaColore().schemaColore());
 		if(((ColoreRgb)c1.luminositaColore()).getR()<130){
 			 System.out.println("E' un colore SCURO.\n Per cui ti conviene mettere il testo in sovraimpressione in BIANCO");
 		}else{
@@ -94,4 +94,22 @@ public class Use {
 		System.out.println("HSL TO RGB HSL(324,100,50) ==> RGB("+Integer.toString(RGB[0])+','+Integer.toString(RGB[1])+','+Integer.toString(RGB[2])+",1)");
 	}
 
+	
+	static void ricettaUse(){
+		/*
+		 * VettoreGenerico<Ingrediente> ricetta= new VettoreGenerico<Ingrediente>();
+		 
+		Ingrediente i = new Ingrediente("a",1,1,2);
+		Ingrediente j = new Ingrediente("a",1,1,2);
+		ricetta.aggiungiElemento(i);
+		ricetta.aggiungiElemento(j);
+		//System.out.println(ricetta.getAt(0).getDescrizione());
+		j.setNome("aa");
+
+		ricetta.rimuoviElemento(j);
+		for(int m = 0 ; m < ricetta.getSize();m++){
+			System.out.println(ricetta.getAt(m));
+		}
+		*/
+	}
 }
