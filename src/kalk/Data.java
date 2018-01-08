@@ -10,6 +10,7 @@ public class Data {
 	}
 	
 	public Data(int g, int m, int a) {
+		
 		if(g >= 0 || g <= 31) {
 			giorno = g;
 		}else {
@@ -86,7 +87,7 @@ public class Data {
 	
 	public String getRappresentazioneStringa(){
 	    String s;
-	    s = giorno + mese + "/" + anno;
+	    s = giorno + "/" + mese + "/" + anno;
 	    return s;
 	}
 }

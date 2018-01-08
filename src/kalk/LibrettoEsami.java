@@ -15,18 +15,10 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
     	targetCFU = (targCFU > 0?targCFU: 1);
     }
     
-    public LibrettoEsami(ArrayList<Esame> v, String nomeS,String cognomeS, int matricolaS, int targCFU) {
-		super(v);
-    	nomeStudente = nomeS;
-    	cognomeStudente = cognomeS;
-    	matricolaStudente = (matricolaS > 0 ? matricolaS:1);
-    	targetCFU = (targCFU > 0?targCFU: 1);
-    }
-    
     public void aggiungiElemento(Esame e){
         if(!cerca(e) && (targetCFU-totaleCFU) >= e.getCFU()){
             super.aggiungiElemento(e);
-            totaleCFU += e.getCFU();
+            totaleCFU = totaleCFU + e.getCFU();
         }
     }
     
@@ -53,10 +45,7 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
     }
     
     public void setMatricola(int m){
-    	if(m > 0)
-    		matricolaStudente = m;
-    	else
-    		matricolaStudente = 1;
+    	matricolaStudente = (m > 0 ? m:1);
     }
 
     public String getNomeStudente() {
@@ -243,6 +232,15 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
         //return this;
     }
     
+    public boolean cerca(Esame e){
+    	boolean trovato = false;
+		for(int i = 0 ; i < getSize() && !trovato;i++){
+			if(getAt(i).uguale(e))
+				trovato=true;
+		}
+		return trovato;
+    }
+    
     public VettoreGenerico<Esame> differenza(VettoreGenerico<Esame> v){
     	LibrettoEsami aux = this.ottieniCopiaLibretto();
     	aux.differenzaConAssegnazione(v);
@@ -254,7 +252,7 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
     		LibrettoEsami l = (LibrettoEsami)v;
     		
     		for(int i=0; i < l.getSize(); ++i) {
-	    		if(cerca(l.getAt(i))) {
+	    		if(this.cerca(l.getAt(i))) {
 	    			rimuoviElemento(l.getAt(i));
 	    		}
 	    	}

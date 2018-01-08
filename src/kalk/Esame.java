@@ -14,24 +14,14 @@ public class Esame {
 	}
 	
 	public Esame(String nomeM, String nomeC, String nomeP, Data d, int c, int v) {
-		if(c >= 1) {
-			CFU = c;
-		}else {
-			CFU = 1;
-		}
 		
-		if(v >= 18) {
-			voto = v;
-		}else {
-			voto = 18;
-		}
+		CFU = (c >= 1 ? c : 1);
+		voto = (v >= 18 ? v : 18);
+		data = d;
 		
-		if(nomeM.isEmpty())
-			nomeMateria = "Nome materia";
-		if(nomeC.isEmpty())
-			nomeCorso = "Nome corso";
-		if(nomeP.isEmpty())
-			nomeProfessore = "Nome professore";
+		nomeMateria = (nomeM.isEmpty() ? "Nome materia" : nomeM);
+		nomeCorso = (nomeC.isEmpty() ? "Nome corso" : nomeC);
+		nomeProfessore = (nomeP.isEmpty() ? "Nome professore": nomeP);
 		
 		lode = (voto > 30) ? true : false;
 	    if(lode)
@@ -107,7 +97,8 @@ public class Esame {
 	}
 	
 	public boolean uguale(Esame e) {
-		return nomeCorso == e.nomeCorso && nomeMateria == e.nomeMateria;
+		boolean b = nomeCorso.equals(e.getNomeCorso()) && nomeMateria.equals(e.getNomeMateria()); 
+		return b;
 	}
 	
 	public boolean diverso(Esame e) {

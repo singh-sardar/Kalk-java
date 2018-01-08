@@ -34,7 +34,7 @@ public class Use {
 			ricettaUse();
 			break;
 		case 3:
-
+			librettoEsamiUse();
 			break;
 		case 4:
 			//System.out.println("");
@@ -117,5 +117,40 @@ public class Use {
 		System.out.println("Calorie totali della ricetta "+r.getNomeRicetta()+" sono "+Double.toString(r.calorieRicetta())+" cal");
 		System.out.println(r.porzionePer(5).getRicetta());
 
+	}
+	
+	static void librettoEsamiUse() {
+		LibrettoEsami l1 = new LibrettoEsami("Nome 1", "Cognome 1",123,180);
+		LibrettoEsami l2 = new LibrettoEsami("Nome 2","Cognome 2",234,180);
+		Esame e1 = new Esame("Materia 1","Corso 1", "Professore 1",new Data(1,1,2012),12,29);
+		Esame e2 = new Esame("Materia 2","Corso 2", "Professore 2",new Data(2,2,2012),12,34);
+		l1.aggiungiElemento(e1);
+		l2.aggiungiElemento(e2);
+		System.out.println("Somma tra libretto l1 e libretto l2");
+		l1.sommaConAssegnazione(l2);
+		System.out.println(l1.getRappresentazioneStringa());
+		System.out.println("Differenza tra libretto l1 e libretto l2");
+		LibrettoEsami temp1 = ((LibrettoEsami)l1.differenza(l2));
+		System.out.println(temp1.getRappresentazioneStringa());
+		System.out.println("\nEsame migliore di temp1");
+		System.out.println(temp1.esameMigliore());
+		System.out.println("\nEsame peggiore di temp1");
+		System.out.println(temp1.esamePeggiore());
+		System.out.println("\nEsame meno recente di temp1");
+		System.out.println(temp1.esameMenoRecente());
+		System.out.println("\nEsame piu recente di temp1");
+		System.out.println(temp1.esamePiuRecente());
+		System.out.println("\nCFU acquisiti in temp1");
+		System.out.println(temp1.getTotaleCFU());
+		System.out.println("\nCFU rimanenti in temp1");
+		System.out.println(temp1.rimanentiCFU());
+		System.out.println("\nmedia artimetica di temp1");
+		System.out.println(temp1.mediaAritmetica());
+		System.out.println("\nmedia ponderata di temp1");
+		System.out.println(temp1.mediaPonderata());
+		System.out.println("\npercentuale completamento di temp1");
+		System.out.println(temp1.percentualeCompletamento());
+		System.out.println("\nprevisione voto laurea di temp1");
+		System.out.println(temp1.previsioneVotoLaurea());
 	}
 }
