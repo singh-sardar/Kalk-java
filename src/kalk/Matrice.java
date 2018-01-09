@@ -8,9 +8,16 @@ public class Matrice extends VettoreGenerico<Double>{
 	private int indiceColonnaFinale;
 	
 	public Matrice(int numR, int numC) {
+		this(numR,numC,0);
+	}
+	
+	public Matrice(int numR, int numC, double defVal) {
 		super(new ArrayList<Double>(numR*numC));
 		numRighe = (numR > 0 ? numR : 1);
 		numColonne = (numC > 0 ? numC : 1);
+		for(int i=0; i < numR*numC; ++i) {
+			super.aggiungiElemento(defVal);
+		}
 	}
 	
 	public int getNumRighe(){
@@ -29,7 +36,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    setAt(riga*numColonne+colonna,valore);
 	}
 	
-	public double sommaVettori(ArrayList<Double> v1, ArrayList<Double> v2){
+	public static double sommaVettori(ArrayList<Double> v1, ArrayList<Double> v2){
 	    double temp=0;
 	    if(v1.size() == v2.size()){
 	        for(int i=0; i < v1.size(); ++i){
@@ -133,7 +140,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    return tempV;
 	}
 	
-	Matrice prodottoMatrice(VettoreGenerico<Double> m) {
+	Matrice prodotto(VettoreGenerico<Double> m) {
 		if(m instanceof Matrice) {
 			Matrice tempM = (Matrice)m;
 		    //il prodotto è possibile solo se il numero di colonne del primo operando è uguale al numero di righe del secondo operando

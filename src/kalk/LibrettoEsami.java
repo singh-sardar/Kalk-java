@@ -23,11 +23,15 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
     }
     
     public boolean rimuoviElemento(Esame e){
-        if(cerca(e)){
-            totaleCFU -= e.getCFU();
-            return super.rimuoviElemento(e);
+    	boolean trovato = false;
+    	for(int i=0; i < getSize() && !trovato; ++i) {
+        	if(getAt(i).uguale(e)) {
+        		trovato = true;
+        		super.rimuoviPoz(i);
+        		totaleCFU -= e.getCFU();
+        	}
         }
-        return false;
+        return trovato;
     }
     
     //Ritorna i CFU per completare il percorso di studi
@@ -172,23 +176,6 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
         return null;
     }
     
-    public static ArrayList<Esame> ottieniCopia(ArrayList<Esame> a) {
-    	ArrayList<Esame> result = new ArrayList<Esame>();
-    	
-    	Esame e;
-    	for(int i=0; i < a.size(); ++i) {
-    		e = new Esame(a.get(i).getNomeMateria(),
-    				a.get(i).getNomeCorso(),
-    				a.get(i).getNomeProfessore(),
-    				a.get(i).getData(),
-    				a.get(i).getCFU(),
-    				a.get(i).getVoto());
-    		result.add(e);
-    	}
-    	
-    	return result;
-    }
-    
     public LibrettoEsami ottieniCopiaLibretto() {
     	LibrettoEsami temp = new LibrettoEsami(this.getNomeStudente(),this.getCognomeStudente(),this.getMatricola(),this.getTargetCFU());
     	
@@ -228,8 +215,6 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
 	    		}
 	    	}
     	}
-    	
-        //return this;
     }
     
     public boolean cerca(Esame e){

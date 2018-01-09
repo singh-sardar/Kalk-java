@@ -37,7 +37,7 @@ public class Use {
 			librettoEsamiUse();
 			break;
 		case 4:
-			//System.out.println("");
+			matriceUse();
 			break;
 		case -1: 
 			System.out.println("Grazie per utilizzato la calcolatrice");
@@ -152,5 +152,50 @@ public class Use {
 		System.out.println(temp1.percentualeCompletamento());
 		System.out.println("\nprevisione voto laurea di temp1");
 		System.out.println(temp1.previsioneVotoLaurea());
+	}
+	
+	static void matriceUse() {
+		Matrice m1 = new Matrice(3,3,1);
+		Matrice m2 = new Matrice(3,3,2);
+		Matrice m3 = new Matrice(3,3);
+		Matrice m4 = new Matrice(2,2);
+		
+		for(int i=0; i < m3.getNumRighe(); ++i) {
+			for(int j=0; j < m3.getNumColonne(); ++j) {
+				m3.setValore(i, j, (i+j+1));
+			}
+		}
+		
+		System.out.println("\nMatrice m1:\n "+m1);
+		System.out.println("\nMatrice m2:\n "+m2);
+		System.out.println("\nMatrice m3:\n "+m3);
+		System.out.println("\nSomma tra matrice m1 e m2:\n "+m1.somma(m2));
+		System.out.println("\nDifferenza tra m1 e m2:\n "+m1.differenza(m2));
+		System.out.println("\nProdotto scalare di m2 per il valore 1.5:\n"+m2.prodottoScalare(1.5));
+		System.out.println("\nSomma della prima riga di m1 con la prima riga di m2:\n"+Matrice.sommaVettori(m1.getRiga(0), m2.getRiga(0)));
+		System.out.println("\nProdotto tra m1 e m2:\n"+m1.prodotto(m2));
+		System.out.println("\nProdotto tra m1 e m3:\n"+m3.prodotto(m1));
+		System.out.println("\nProdotto tra m3 e m1:\n"+m1.prodotto(m3));
+		System.out.println("\nDivisione scalare di matrice m3 col valore 2:\n"+m3.divisioneScalare(2));
+		System.out.println("\nMatrice trasposta di m3:\n"+m3.matriceTrasposta());
+		System.out.println("\nMatrice m3 elevata a potenza 2:\n"+m3.elevaAPotenza(2));
+		System.out.println("\nMatrice m3 diagonale: "+m3.isDiagonale());
+		System.out.println("Matrice m4 diagonale: "+m4.isDiagonale());
+		System.out.println("Matrice m3 simmetrica: "+m3.isSimmetrica());
+		System.out.println("Matrice m3 è scalare per il valore 2: "+m3.isScalare(2));
+		System.out.println("Matrice m4 è scalare per il valore 0: "+m4.isScalare(0));
+		System.out.println("Determinante della matrice m4: "+m4.determinante());
+		
+		for(int i=0; i< m4.getSize(); ++i) {
+			m4.setAt(i,(double)(i+1));
+		}
+		if(m4.determinante() == 0) {
+			System.out.println("La matrice m4 non è invertibile");
+		}else {
+			System.out.println("\nMatrice inversa di m4: \n"+m4.matriceInversa());
+		}
+		
+		System.out.println("\nMatrice ridotta di m3 su riga 2 e colonna 2:\n"+m3.matriceRidotta(1, 1));
+		System.out.println("\nMatrice dei cofattori di m4: \n"+m4.matriceCofattore());
 	}
 }
