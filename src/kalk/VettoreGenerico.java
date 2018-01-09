@@ -47,6 +47,11 @@ public abstract class VettoreGenerico<T> {
 	public T getAt(int i){
 		return vettore.get(i);
 	}
+	
+	public void setAt(int i, T t) {
+		vettore.set(i, t);
+	}
+	
 	public int getSize(){
 		return vettore.size();
 	}

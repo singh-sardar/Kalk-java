@@ -76,14 +76,8 @@ public class Esame {
 			nomeProfessore = n;
 	}
 	
-	public void setCFU(int c) {
-		if(c >= 1)
-			CFU = c;
-	}
-	
 	public void setVoto(int v) {
-		if(v>=18)
-			voto = v;
+		voto = (v >= 18 ? v : 18);
 		if(voto > 30) {
 			voto = 30;
 			lode = true;
@@ -97,8 +91,7 @@ public class Esame {
 	}
 	
 	public boolean uguale(Esame e) {
-		boolean b = nomeCorso.equals(e.getNomeCorso()) && nomeMateria.equals(e.getNomeMateria()); 
-		return b;
+		return nomeCorso.equals(e.getNomeCorso()) && nomeMateria.equals(e.getNomeMateria()); 
 	}
 	
 	public boolean diverso(Esame e) {
@@ -107,20 +100,20 @@ public class Esame {
 	
 	public String getRappresentazioneStringa(){
 	    String t = new String();
-	    t += "\nCFU: " + getCFU() + "; ";
-	    t += "\nVoto: " + getVoto() + "; ";
-	    t += ("\nLode: " + (getLode() ? "Si" : "No") + "; ");
-	    t += "\nNome Materia: " + getNomeMateria() + "; ";
-	    t += "\nNome Professore: " + getNomeProfessore() + "; ";
-	    t += "\nNome Corso: " + getNomeCorso() + "; ";
-	    t += "\nData: " + data.getRappresentazioneStringa() + "; ";
+	    t += "\nCFU: " + getCFU() + ";";
+	    t += "\nVoto: " + getVoto() + ";";
+	    t += ("\nLode: " + (getLode() ? "Si" : "No") + ";");
+	    t += "\nNome Materia: " + getNomeMateria() + ";";
+	    t += "\nNome Professore: " + getNomeProfessore() + ";";
+	    t += "\nNome Corso: " + getNomeCorso() + ";";
+	    t += "\nData: " + data.getRappresentazioneStringa() + ";";
 	    return t;
 	}
 	
 	public String toString(){
 		return getRappresentazioneStringa();
 	}
-	
+	/*
 	public Esame somma(Esame e){
 	    Esame tmp = this.ottieniCopiaEsame();
 	    if(nomeMateria == e.getNomeMateria() && nomeCorso == e.getNomeCorso() && nomeProfessore == e.getNomeProfessore()){
@@ -128,4 +121,5 @@ public class Esame {
 	    }
 	    return tmp;
 	}
+	*/
 }

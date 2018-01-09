@@ -16,9 +16,9 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
     }
     
     public void aggiungiElemento(Esame e){
-        if(!cerca(e) && (targetCFU-totaleCFU) >= e.getCFU()){
+        if(!cerca(e) && ((targetCFU-totaleCFU) >= e.getCFU())){
             super.aggiungiElemento(e);
-            totaleCFU = totaleCFU + e.getCFU();
+            totaleCFU += e.getCFU();
         }
     }
     
