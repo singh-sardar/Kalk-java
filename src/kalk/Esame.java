@@ -3,7 +3,6 @@ package kalk;
 public class Esame {
 	private int CFU;
 	private int voto;
-	boolean lode;
 	private String nomeMateria;
 	private String nomeCorso;
 	private String nomeProfessore;
@@ -17,15 +16,12 @@ public class Esame {
 		
 		CFU = (c >= 1 ? c : 1);
 		voto = (v >= 18 ? v : 18);
+		voto = (voto <= 30 ? voto: 30);
 		data = d;
 		
 		nomeMateria = (nomeM.isEmpty() ? "Nome materia" : nomeM);
 		nomeCorso = (nomeC.isEmpty() ? "Nome corso" : nomeC);
 		nomeProfessore = (nomeP.isEmpty() ? "Nome professore": nomeP);
-		
-		lode = (voto > 30) ? true : false;
-	    if(lode)
-	        voto = 30;
 	}
 	
 	public Esame ottieniCopiaEsame() {
@@ -53,10 +49,6 @@ public class Esame {
 	    return voto;
 	}
 
-	public boolean getLode(){
-	    return lode;
-	}
-
 	public Data getData(){
 	    return data;
 	}
@@ -78,12 +70,7 @@ public class Esame {
 	
 	public void setVoto(int v) {
 		voto = (v >= 18 ? v : 18);
-		if(voto > 30) {
-			voto = 30;
-			lode = true;
-		}else {
-			lode = false;
-		}
+	    voto = (voto <= 30 ? voto : 30);
 	}
 	
 	public void setData(Data d) {
@@ -102,7 +89,6 @@ public class Esame {
 	    String t = new String();
 	    t += "\nCFU: " + getCFU() + ";";
 	    t += "\nVoto: " + getVoto() + ";";
-	    t += ("\nLode: " + (getLode() ? "Si" : "No") + ";");
 	    t += "\nNome Materia: " + getNomeMateria() + ";";
 	    t += "\nNome Professore: " + getNomeProfessore() + ";";
 	    t += "\nNome Corso: " + getNomeCorso() + ";";
@@ -113,13 +99,4 @@ public class Esame {
 	public String toString(){
 		return getRappresentazioneStringa();
 	}
-	/*
-	public Esame somma(Esame e){
-	    Esame tmp = this.ottieniCopiaEsame();
-	    if(nomeMateria == e.getNomeMateria() && nomeCorso == e.getNomeCorso() && nomeProfessore == e.getNomeProfessore()){
-	        tmp.voto = (voto+e.getVoto())/2;
-	    }
-	    return tmp;
-	}
-	*/
 }

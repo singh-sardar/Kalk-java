@@ -256,19 +256,11 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
     	return aux;
     }
     
-    public void sommaEsameConAssegnazione(Esame e) {
-    	aggiungiElemento(e);
-    }
-    
-    public void differenzaEsameConAssegnazione(Esame e) {
-    	rimuoviElemento(e);
-    }
-    
     public String getRappresentazioneStringa(){
         String t = new String();
         t += "Nome: "+getNomeStudente() + "; Cognome: "+getCognomeStudente()+"; Matricola: "+getMatricola();
         for(int i=0; i < getSize(); ++i){
-            t += "\n\nEsame " + i+1 + ":";
+            t += "\n\nEsame " + (i+1) + ":";
             t += (getAt(i)).getRappresentazioneStringa();
         }
         return t;

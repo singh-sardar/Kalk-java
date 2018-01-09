@@ -10,24 +10,9 @@ public class Data {
 	}
 	
 	public Data(int g, int m, int a) {
-		
-		if(g >= 0 || g <= 31) {
-			giorno = g;
-		}else {
-			giorno = 1;
-		}
-		
-		if(m >= 1 || m <=12) {
-			mese = m;
-		}else {
-			mese = 1;
-		}
-		
-		if(a >= 1900) {
-			anno = a;
-		}else {
-			anno = 1900;
-		}
+		giorno = ((g >= 0 || g <= 31) ? g : 1);
+		mese = ((m >= 1 || m <=12) ? m : 1);
+		anno = ((a >= 1900) ? a : 1900);
 		
 		if(!dataValida()) {
 			giorno = 1;
