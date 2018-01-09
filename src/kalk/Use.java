@@ -178,15 +178,15 @@ public class Use {
 		System.out.println("\nMatrice m3 diagonale: "+m3.isDiagonale());
 		System.out.println("Matrice m4 diagonale: "+m4.isDiagonale());
 		System.out.println("Matrice m3 simmetrica: "+m3.isSimmetrica());
-		System.out.println("Matrice m3 è scalare per il valore 2: "+m3.isScalare(2));
-		System.out.println("Matrice m4 è scalare per il valore 0: "+m4.isScalare(0));
+		System.out.println("Matrice m3 e' scalare per il valore 2: "+m3.isScalare(2));
+		System.out.println("Matrice m4 e' scalare per il valore 0: "+m4.isScalare(0));
 		System.out.println("Determinante della matrice m4: "+m4.determinante());
 		
 		for(int i=0; i< m4.getSize(); ++i) {
 			m4.setAt(i,(double)(i+1));
 		}
 		if(m4.determinante() == 0) {
-			System.out.println("La matrice m4 non è invertibile");
+			System.out.println("La matrice m4 non e' invertibile");
 		}else {
 			System.out.println("\nMatrice inversa di m4: \n"+m4.matriceInversa());
 		}
