@@ -143,7 +143,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	Matrice prodotto(VettoreGenerico<Double> m) {
 		if(m instanceof Matrice) {
 			Matrice tempM = (Matrice)m;
-		    //il prodotto è possibile solo se il numero di colonne del primo operando è uguale al numero di righe del secondo operando
+		    //il prodotto e' possibile solo se il numero di colonne del primo operando e' uguale al numero di righe del secondo operando
 		    if(tempM != null && (getNumColonne() == tempM.getNumRighe())){
 		        Matrice aux = new Matrice(getNumRighe(), tempM.getNumColonne());
 		        for(int i = 0; i < aux.getNumRighe(); ++i){
