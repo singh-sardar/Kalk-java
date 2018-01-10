@@ -1,7 +1,5 @@
 package kalk;
 
-import java.util.ArrayList;
-
 public class LibrettoEsami extends VettoreGenerico<Esame>{
 	private String nomeStudente, cognomeStudente;
     private int matricolaStudente;
@@ -191,17 +189,6 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
 
     	LibrettoEsami aux = this.ottieniCopiaLibretto();
     	aux.sommaConAssegnazione(v);
-    	/*
-    	if(v instanceof LibrettoEsami) {
-    		LibrettoEsami l = (LibrettoEsami)v;
-    		
-	    	for(int i=0; i < l.getSize(); ++i) {
-	    		if(!aux.cerca(l.getAt(i)) && (totaleCFU+(l.getAt(i)).getCFU() <= targetCFU)) {
-	    			aux.aggiungiElemento(l.getAt(i));
-	    		}
-	    	}
-    	}
-    	*/
     	return aux;
     }
     
@@ -210,9 +197,7 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
     		LibrettoEsami l = (LibrettoEsami)v;
     		
 	    	for(int i=0; i < l.getSize(); ++i) {
-	    		if(!cerca(l.getAt(i)) && (totaleCFU+(l.getAt(i)).getCFU() <= targetCFU)) {
-	    			aggiungiElemento(l.getAt(i));
-	    		}
+    			aggiungiElemento(l.getAt(i));
 	    	}
     	}
     }
@@ -237,9 +222,7 @@ public class LibrettoEsami extends VettoreGenerico<Esame>{
     		LibrettoEsami l = (LibrettoEsami)v;
     		
     		for(int i=0; i < l.getSize(); ++i) {
-	    		if(this.cerca(l.getAt(i))) {
-	    			rimuoviElemento(l.getAt(i));
-	    		}
+    			rimuoviElemento(l.getAt(i));
 	    	}
     	}
     }
