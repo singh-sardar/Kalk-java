@@ -50,10 +50,10 @@ public class Matrice extends VettoreGenerico<Double>{
 	    if((indiceColonnaFinale == numColonne) || indiceColonnaFinale==0){
 	        numRighe++;
 	        indiceColonnaFinale=0;
-	        aggiungiElemento(d);
+	        super.aggiungiElemento(d);
 	        indiceColonnaFinale++;
 	        for(int i=numColonne, j=indiceColonnaFinale; i-j>0; ++j){
-	            aggiungiElemento(0);
+	            super.aggiungiElemento(0.0);
 	        }
 	    }else{
 	        setValore(numRighe-1,indiceColonnaFinale,d);
