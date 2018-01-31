@@ -36,7 +36,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    setAt(riga*numColonne+colonna,valore);
 	}
 	
-	public static double sommaVettori(ArrayList<Double> v1, ArrayList<Double> v2){
+	private static double sommaVettori(ArrayList<Double> v1, ArrayList<Double> v2){
 	    double temp=0;
 	    if(v1.size() == v2.size()){
 	        for(int i=0; i < v1.size(); ++i){
@@ -130,7 +130,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    return aux;
 	}
 	
-	ArrayList<Double> getRiga(int riga){
+	private ArrayList<Double> getRiga(int riga){
 	    ArrayList<Double> tempV = new ArrayList<Double>(numColonne);
 	    if(riga <= numRighe){
 	        for(int i=0; i < numColonne; ++i){
@@ -140,7 +140,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    return tempV;
 	}
 	
-	Matrice prodotto(VettoreGenerico<Double> m) {
+	public Matrice prodotto(VettoreGenerico<Double> m) {
 		if(m instanceof Matrice) {
 			Matrice tempM = (Matrice)m;
 		    //il prodotto e' possibile solo se il numero di colonne del primo operando e' uguale al numero di righe del secondo operando
@@ -163,12 +163,12 @@ public class Matrice extends VettoreGenerico<Double>{
 		return null;
 	}
 	
-	Matrice divisioneScalare(double n) {
+	public Matrice divisioneScalare(double n) {
 		if(n == 0){ return null;}
 	    return this.prodottoScalare(1/n);
 	}
 	
-	Matrice matriceTrasposta(){
+	public Matrice matriceTrasposta(){
 	    Matrice aux = new Matrice(getNumColonne(), getNumRighe());
 	    for(int i=0; i < getNumRighe(); ++i){
 	        for(int j=0; j < getNumColonne(); ++j){
@@ -178,7 +178,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    return aux;
 	}
 	
-	Matrice matriceRidotta(int i, int j){
+	public Matrice matriceRidotta(int i, int j){
 	    Matrice min = new Matrice(numRighe-1,numColonne-1);
 
 	    for(int row=0; row < min.getNumRighe(); ++row){
@@ -196,7 +196,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    return min;
 	}
 	
-	double determinante(){
+	public double determinante(){
 	    double t=0;
 	    if((numRighe == numColonne) && numRighe > 2){
 	        for(int i=0; i < numColonne;++i){
@@ -215,7 +215,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    return t;
 	}
 	
-	Matrice matriceCofattore(){
+	public Matrice matriceCofattore(){
 	    if((numRighe == numColonne) && numRighe >= 2){
 	        Matrice mat1 = new Matrice(numRighe, numColonne);
 	        for(int i=0; i < mat1.getNumRighe(); ++i){
@@ -234,7 +234,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    return null;
 	}
 	
-	Matrice matriceInversa(){
+	public Matrice matriceInversa(){
 	    if(determinante() != 0.0 && (numColonne==numRighe)){
 	        if(numColonne > 2){
 	            Matrice cofat = matriceCofattore();
@@ -252,7 +252,7 @@ public class Matrice extends VettoreGenerico<Double>{
 	    return null;
 	}
 	
-	boolean isDiagonale() {
+	public boolean isDiagonale() {
 	    if(getNumRighe() == getNumColonne()){
 	        boolean diversoDaZero = true;
 	        for(int i = 0; i < getNumRighe() && diversoDaZero; ++i){
@@ -282,7 +282,7 @@ public class Matrice extends VettoreGenerico<Double>{
 		return rappresentazioneStringa();
 	}
 	
-	boolean isScalare(double n) {
+	public boolean isScalare(double n) {
 	    if(isDiagonale()){
 	        boolean flag = true;
 	        for(int i=0; i < getNumRighe() && flag; ++i){
@@ -297,11 +297,11 @@ public class Matrice extends VettoreGenerico<Double>{
 	    return false;
 	}
 
-	boolean isSimmetrica() {
+	public boolean isSimmetrica() {
 		return this.uguali(this.matriceTrasposta());
 	}
 	
-	Matrice elevaAPotenza(int n){
+	public Matrice elevaAPotenza(int n){
 	    Matrice aux = this.ottieniCopia();
 	    for(int i=0; i < getNumRighe(); ++i){
 	        for(int j=0; j < getNumColonne(); ++j){

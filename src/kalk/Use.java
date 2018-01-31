@@ -168,7 +168,6 @@ public class Use {
 		System.out.println("\nSomma tra matrice m1 e m2:\n "+m1.somma(m2));
 		System.out.println("\nDifferenza tra m1 e m2:\n "+m1.differenza(m2));
 		System.out.println("\nProdotto scalare di m2 per il valore 1.5:\n"+m2.prodottoScalare(1.5));
-		System.out.println("\nSomma della prima riga di m1 con la prima riga di m2:\n"+Matrice.sommaVettori(m1.getRiga(0), m2.getRiga(0)));
 		System.out.println("\nProdotto tra m1 e m2:\n"+m1.prodotto(m2));
 		System.out.println("\nProdotto tra m1 e m3:\n"+m3.prodotto(m1));
 		System.out.println("\nProdotto tra m3 e m1:\n"+m1.prodotto(m3));
