@@ -90,7 +90,6 @@ public class Ricetta extends VettoreGenerico<Ingrediente>{
 						if(aux.getAt(j).getQuantita()- r.getAt(i).getQuantita() >0.0){
 							Ingrediente temp = aux.getAt(j);
 							temp.setQuantita(aux.getAt(j).differenza(r.getAt(i)).getQuantita());
-							//aux->operator [](j) = aux->operator [](j)-r->operator [](i);
 						}
 						else{
 
