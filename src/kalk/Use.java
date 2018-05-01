@@ -52,7 +52,7 @@ public class Use {
 
 
 	}
-	static void coloriRgbUse(){
+	static void coloriRgbUse(){/*
 		ColoreRgb c1 = new ColoreRgb(0,0,255,1);
 		ColoreRgb c2 = new ColoreRgb(234,154,105,1);
 		ColoreRgb c3 = new ColoreRgb();
@@ -93,7 +93,8 @@ public class Use {
 		int RGB[] = new int[3];
 		RGB = Colore.hsl2rgb(HSL);
 		System.out.println("HSL TO RGB HSL(324,100,50) ==> RGB("+Integer.toString(RGB[0])+','+Integer.toString(RGB[1])+','+Integer.toString(RGB[2])+",1)");
-	}
+	*/
+		}
 
 	
 	static void ricettaUse(){
