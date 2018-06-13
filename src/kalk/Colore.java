@@ -93,6 +93,9 @@ public abstract class Colore {
 	public abstract double[] ToLab();
 	public abstract String ToHex();
 
+	public String toString() {
+		return schemaColore();
+	}
 
 	public boolean uguale(Colore c){
 		return (schemaColore().equals(c.schemaColore()));

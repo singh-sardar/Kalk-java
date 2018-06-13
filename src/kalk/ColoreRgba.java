@@ -92,6 +92,4 @@ public class ColoreRgba extends ColoreRgb{
 		String s= "rgba("+Integer.toString(getR())+","+Integer.toString(getG())+","+Integer.toString(getB())+","+Float.toString(getA())+")";
 		return s;
 	}
-
-
 }

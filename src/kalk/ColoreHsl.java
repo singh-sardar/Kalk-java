@@ -181,6 +181,4 @@ public class ColoreHsl extends Colore{
 		return s;
 	}
 
-
-
 }

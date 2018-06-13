@@ -556,4 +556,5 @@ public class ColoreRgb extends Colore{
 		rgb[2]= b;
 		return  rgb2hex(rgb);
 	}
+	
 }

@@ -28,7 +28,7 @@ public class Use {
 
 		switch (scelta) {
 		case 1:
-			coloriRgbUse();
+			coloriUse();
 			break;
 		case 2:
 			ricettaUse();
@@ -95,6 +95,52 @@ public class Use {
 		System.out.println("HSL TO RGB HSL(324,100,50) ==> RGB("+Integer.toString(RGB[0])+','+Integer.toString(RGB[1])+','+Integer.toString(RGB[2])+",1)");
 	*/
 		}
+	
+	static void coloriUse() {
+		Colore colRGB = new ColoreRgb(0,0,255);
+		Colore colRGB2 = new ColoreRgb(0,255,255);
+		Colore colRGBA = new ColoreRgba(234,154,105,0.87f);
+		Colore colHSL = new ColoreHsl(50,25,50);
+		System.out.println("Colore formato RGB : " + colRGB.schemaColore());
+		System.out.println("Colore formato RGBA : "+ colRGBA.schemaColore());
+		System.out.println("Colore formato HSL : " + colHSL.schemaColore());
+		Colore colT = (ColoreRgb)(colRGB.somma(colRGBA));
+		System.out.println("Colore somma di "+colRGB+" e "+colRGBA+": "+colT);
+		Colore colT2 = (ColoreHsl)(colHSL.somma(new ColoreHsl()));
+		System.out.println("Colore somma di "+colHSL+" e colore "+(new ColoreHsl())+": "+colT2);
+		System.out.println("Colore differenza tra "+colRGB+" e "+colRGBA+": "+(ColoreRgb)(colRGB.differenza(colRGBA)));
+		colT=(ColoreRgb)colRGB.modula(colRGBA);
+		System.out.println("Colore result Modulazione di "+colRGB+" con "+colRGBA+" : "+colT);
+		System.out.println("Delta E Colori di "+colRGB+" con "+colRGB2+": "+Double.toString(colRGB.deltaE(colRGB2)));
+		System.out.println("Colore complementare di "+colRGB2+" : "+colRGB2.complementare());
+
+		if(colRGB2.coloreCaldo()){
+			 System.out.println(colRGB2+" e' un colore Caldo");
+		}else
+			 System.out.println(colRGB2 + " e' un colore Freddo");
+		System.out.println("Luminosita Colore "+colRGB+" : "+colRGB.getLuminosita());
+		
+		double lab[] = new double[3];
+		lab  = colRGB.ToLab();
+		System.out.println("Rappresentazione in lab di "+colRGB+" ==> LAB("+Double.toString(lab[0])+','+Double.toString(lab[1])+','+Double.toString(lab[2])+')');
+		
+		double hsl[] = new double[3];
+		hsl  = ((ColoreRgb)colRGB).ToHsl();
+		System.out.println("Rappresentazione in HSL di "+colRGB+" ==> HSL("+Double.toString(hsl[0])+','+Double.toString(hsl[1])+','+Double.toString(hsl[2])+')');
+		System.out.println("Rappresentazione in HEX di "+colRGB+" ==> HEX("+colRGB.ToHex()+')');
+		System.out.println("Colore "+colHSL+" scalato di 0.5 "+colHSL.scala(0.5));
+		System.out.println("Scala grigio per colore "+colHSL+": "+colHSL.grayScale());
+		
+		/*
+		double HSL[] = new double[3];
+		HSL[0]=324;
+		HSL[1]=100;
+		HSL[2]=50;
+		int RGB[] = new int[3];
+		RGB = Colore.hsl2rgb(HSL);
+		System.out.println("HSL TO RGB HSL(324,100,50) ==> RGB("+Integer.toString(RGB[0])+','+Integer.toString(RGB[1])+','+Integer.toString(RGB[2])+",1)");
+		*/
+	}
 
 	
 	static void ricettaUse(){
