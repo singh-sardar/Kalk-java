@@ -56,7 +56,7 @@ public class ColoreHsl extends Colore{
 
 	public ColoreHsl somma(Colore c){
 		//media dei hue
-		//se la la differenza tra gli hue è > 180 => add mezzo giro (360/2 = 180) in modulo 360.else
+		//se la la differenza tra gli hue e > 180 => add mezzo giro (360/2 = 180) in modulo 360.else
 
 		//algoritmo ricavato da idea:
 		//RGB colour space uses a Cartesian coordinate system while HSL and HSV use polar coordinates. "Half way" is fairly simple in Cartesian coordinates, you just average them pairwise. It gets more complex in polar coordinates. You think of "half way" in different terms, for instance, it's halfway point of an arc ? If an arc, there are two, and four "rules" for choosing one of the two so do you go the short way, the long way, clockwise from the first colour, or counterclockwise from the first colour.
